@@ -1,0 +1,1001 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#081426">
+  <meta name="description" content="Portfolio of Ersultan Serikboluly, software student and web developer from Atyrau, Kazakhstan.">
+  <title>Ersultan Serikboluly | Web Developer</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%2313294f'/%3E%3Ctext x='32' y='43' font-family='Arial' font-weight='700' font-size='32' text-anchor='middle' fill='%238bbcff'%3EE%3C/text%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      color-scheme: dark;
+      --navy-950: #050d1c;
+      --navy-900: #081426;
+      --navy-850: #0a1930;
+      --navy-800: #0c1c38;
+      --navy-700: #13294f;
+      --line: #20365e;
+      --text: #eef3fb;
+      --silver: #c9d4e8;
+      --muted: #aab9d1;
+      --accent: #8bbcff;
+      --accent-bright: #b3d3ff;
+      --font-display: "Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
+      --font-body: "DM Sans", "Segoe UI", system-ui, sans-serif;
+      --page: 1120px;
+      --header-height: 72px;
+
+      /* Меняй размеры фотографий здесь */
+      --portrait-width: 420px;
+      --porsche-height: 680px;
+      --certificate-width: 600px;
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: calc(var(--header-height) + 20px);
+    }
+
+    body {
+      margin: 0;
+      min-width: 320px;
+      overflow-x: hidden;
+      background: var(--navy-900);
+      color: var(--text);
+      font: 400 1.0625rem/1.7 var(--font-body);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    a:focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: 5px;
+      border-radius: 4px;
+    }
+
+    .wrap {
+      width: min(var(--page), calc(100% - 48px));
+      margin-inline: auto;
+    }
+
+    .skip-link {
+      position: fixed;
+      z-index: 100;
+      top: 10px;
+      left: 10px;
+      padding: 10px 14px;
+      transform: translateY(-160%);
+      color: var(--navy-950);
+      background: var(--accent);
+      border-radius: 8px;
+      font-weight: 700;
+    }
+
+    .skip-link:focus {
+      transform: translateY(0);
+    }
+
+    /* Шапка и меню */
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      background: rgb(8 20 38 / 88%);
+      -webkit-backdrop-filter: blur(16px);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid rgb(32 54 94 / 80%);
+    }
+
+    .header-inner {
+      min-height: var(--header-height);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      font: 700 1.05rem/1 var(--font-display);
+      white-space: nowrap;
+    }
+
+    .brand-mark {
+      display: grid;
+      width: 38px;
+      aspect-ratio: 1;
+      place-items: center;
+      border: 1px solid var(--accent);
+      border-radius: 50%;
+      color: var(--accent);
+      font-size: .82rem;
+    }
+
+    .nav-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 4px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .nav-list a {
+      display: block;
+      padding: 9px 14px;
+      border-radius: 999px;
+      color: var(--muted);
+      text-decoration: none;
+      font-size: .93rem;
+      transition: color .2s, background .2s;
+    }
+
+    .nav-list a:hover,
+    .nav-list a:focus-visible {
+      color: var(--text);
+      background: var(--navy-700);
+    }
+
+    /* Первый экран */
+    .hero {
+      position: relative;
+      isolation: isolate;
+      padding: clamp(72px, 10vw, 128px) 0 clamp(88px, 11vw, 140px);
+      background:
+        radial-gradient(48% 58% at 82% 28%, rgb(79 140 255 / 22%), transparent 72%),
+        radial-gradient(40% 44% at 8% 100%, rgb(34 76 170 / 22%), transparent 72%),
+        var(--navy-900);
+    }
+
+    .hero::after {
+      position: absolute;
+      z-index: -1;
+      inset: auto 0 0;
+      height: 1px;
+      content: "";
+      background: linear-gradient(90deg, transparent, var(--line), transparent);
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.25fr) minmax(270px, .75fr);
+      gap: clamp(42px, 8vw, 96px);
+      align-items: center;
+    }
+
+    .status {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin: 0 0 28px;
+      padding: 8px 14px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: rgb(19 41 79 / 48%);
+      color: var(--silver);
+      font-size: .9rem;
+    }
+
+    .status::before {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      content: "";
+      background: #4ade80;
+      box-shadow: 0 0 0 4px rgb(74 222 128 / 15%);
+    }
+
+    h1, h2, h3 {
+      font-family: var(--font-display);
+    }
+
+    h1 {
+      max-width: 12ch;
+      margin: 0 0 24px;
+      font-size: clamp(3.25rem, 8vw, 6.3rem);
+      font-weight: 800;
+      line-height: .94;
+      letter-spacing: -.055em;
+    }
+
+    h1 span {
+      display: block;
+    }
+
+    .role {
+      max-width: 34ch;
+      margin: 0 0 32px;
+      color: var(--muted);
+      font-size: clamp(1.15rem, 2vw, 1.35rem);
+      line-height: 1.55;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .button {
+      display: inline-flex;
+      min-height: 50px;
+      align-items: center;
+      justify-content: center;
+      padding: 12px 22px;
+      border: 1px solid var(--accent);
+      border-radius: 999px;
+      font-size: .96rem;
+      font-weight: 700;
+      text-decoration: none;
+      transition: transform .2s, background .2s, border-color .2s;
+    }
+
+    .button:hover {
+      transform: translateY(-2px);
+    }
+
+    .button-primary {
+      color: var(--navy-950);
+      background: var(--accent);
+    }
+
+    .button-primary:hover {
+      background: var(--accent-bright);
+    }
+
+    .button-secondary {
+      color: var(--text);
+      border-color: var(--line);
+      background: rgb(8 20 38 / 35%);
+    }
+
+    .button-secondary:hover {
+      border-color: var(--accent);
+    }
+
+    .portrait {
+      position: relative;
+      justify-self: end;
+      width: min(100%, var(--portrait-width));
+    }
+
+    .portrait::before {
+      position: absolute;
+      inset: 16px -16px -16px 16px;
+      border: 1px solid rgb(139 188 255 / 75%);
+      border-radius: 190px 190px 14px 14px;
+      content: "";
+    }
+
+    .portrait img {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 3 / 4;
+      object-fit: cover;
+      object-position: center;
+      border-radius: 190px 190px 14px 14px;
+      box-shadow: 0 28px 72px rgb(0 0 0 / 42%);
+    }
+
+    /* Общие настройки секций */
+    .section {
+      padding: clamp(76px, 10vw, 116px) 0;
+      border-top: 1px solid var(--line);
+    }
+
+    .section-deep {
+      background: var(--navy-950);
+    }
+
+    .section-grid {
+      display: grid;
+      grid-template-columns: minmax(190px, .72fr) minmax(0, 1.55fr);
+      gap: clamp(40px, 7vw, 84px);
+      align-items: start;
+    }
+
+    h2 {
+      margin: 0;
+      font-size: clamp(2.2rem, 4.5vw, 3.25rem);
+      font-weight: 700;
+      line-height: 1.05;
+      letter-spacing: -.04em;
+    }
+
+    .about-copy p {
+      max-width: 66ch;
+      margin: 0 0 1.15em;
+      color: var(--silver);
+    }
+
+    .about-copy p:first-child {
+      color: var(--text);
+      font-size: 1.2rem;
+    }
+
+    .facts {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      max-width: 680px;
+      margin: 40px 0 0;
+      padding: 0;
+      border-top: 1px solid var(--line);
+      list-style: none;
+    }
+
+    .facts li {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+      padding: 16px 12px 16px 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .fact-label {
+      color: var(--muted);
+      font-size: .88rem;
+    }
+
+    .fact-value {
+      font-weight: 600;
+    }
+
+    /* Фото Porsche */
+    .interest {
+      position: relative;
+      overflow: hidden;
+      border-top: 1px solid var(--line);
+      background: #0b1630;
+    }
+
+    .interest-inner {
+      padding: clamp(76px, 9vw, 104px) 0 clamp(72px, 8vw, 90px);
+      text-align: center;
+    }
+
+    .interest h2 {
+      position: relative;
+      z-index: 1;
+      font-size: clamp(2.5rem, 6vw, 4.5rem);
+    }
+
+    .interest img {
+      width: 100%;
+      max-height: var(--porsche-height);
+      aspect-ratio: 3 / 2;
+      margin: -5px auto -24px;
+      object-fit: contain;
+    }
+
+    .interest p {
+      max-width: 48ch;
+      margin: 0 auto;
+      color: var(--muted);
+    }
+
+    /* Навыки */
+    .skill-group {
+      padding: 24px 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .skill-group:first-child {
+      padding-top: 0;
+    }
+
+    .skill-group h3 {
+      margin: 0 0 14px;
+      font-size: 1.2rem;
+    }
+
+    .chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 9px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .chips li {
+      padding: 7px 15px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: rgb(19 41 79 / 38%);
+      color: var(--silver);
+      font-size: .93rem;
+    }
+
+    /* Проекты и сертификат */
+    .projects {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .project {
+      display: grid;
+      grid-template-columns: minmax(145px, .82fr) minmax(0, 1.35fr) auto;
+      gap: 22px;
+      align-items: center;
+      padding: 26px 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .project:first-child {
+      padding-top: 0;
+    }
+
+    .project h3 {
+      margin: 0;
+      font-size: clamp(1.45rem, 2.5vw, 1.8rem);
+      line-height: 1.15;
+      letter-spacing: -.025em;
+      transition: color .2s;
+    }
+
+    .project:hover h3 {
+      color: var(--accent);
+    }
+
+    .project p {
+      margin: 0;
+      color: var(--muted);
+      font-size: .97rem;
+    }
+
+    .tag {
+      justify-self: end;
+      padding: 5px 12px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      color: var(--accent);
+      font-size: .82rem;
+      white-space: nowrap;
+    }
+
+    .achievement {
+      display: grid;
+      grid-template-columns: minmax(0, .85fr) minmax(0, 1.15fr);
+      gap: clamp(28px, 5vw, 56px);
+      align-items: center;
+      margin-top: 64px;
+      padding: clamp(22px, 4vw, 40px);
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      background: linear-gradient(135deg, var(--navy-800), var(--navy-900));
+    }
+
+    .achievement h3 {
+      margin: 0 0 12px;
+      font-size: 1.7rem;
+      line-height: 1.15;
+      letter-spacing: -.025em;
+    }
+
+    .achievement p {
+      max-width: 44ch;
+      margin: 0;
+      color: var(--muted);
+    }
+
+    .achievement img {
+      width: 100%;
+      max-width: var(--certificate-width);
+      justify-self: end;
+      border: 1px solid rgb(255 255 255 / 9%);
+      border-radius: 10px;
+      box-shadow: 0 18px 44px rgb(0 0 0 / 35%);
+    }
+
+    /* Контакты и подвал */
+    .contact {
+      background:
+        radial-gradient(50% 70% at 92% 100%, rgb(79 140 255 / 16%), transparent 72%),
+        var(--navy-900);
+    }
+
+    .contact h2 {
+      max-width: 10ch;
+      font-size: clamp(2.7rem, 5.4vw, 4.3rem);
+    }
+
+    .contact-intro {
+      max-width: 34ch;
+      margin: 18px 0 0;
+      color: var(--muted);
+    }
+
+    .contact-list {
+      margin: 0;
+      padding: 0;
+      border-top: 1px solid var(--line);
+      list-style: none;
+    }
+
+    .contact-list li {
+      border-bottom: 1px solid var(--line);
+    }
+
+    .contact-list a {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 20px;
+      padding: 22px 0;
+      text-decoration: none;
+      transition: padding .2s;
+    }
+
+    .contact-list a:hover {
+      padding-inline: 8px;
+    }
+
+    .contact-label {
+      color: var(--muted);
+    }
+
+    .contact-value {
+      overflow-wrap: anywhere;
+      text-align: right;
+      font: 700 clamp(1.05rem, 2.2vw, 1.42rem)/1.35 var(--font-display);
+      letter-spacing: -.02em;
+    }
+
+    .contact-list a:hover .contact-value {
+      color: var(--accent);
+    }
+
+    .site-footer {
+      padding: 30px 0 38px;
+      border-top: 1px solid var(--line);
+      background: var(--navy-950);
+      color: var(--muted);
+      font-size: .9rem;
+    }
+
+    .footer-inner {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 10px 24px;
+    }
+
+    .site-footer p {
+      margin: 0;
+    }
+
+    .site-footer a {
+      text-decoration: none;
+    }
+
+    .site-footer a:hover {
+      color: var(--text);
+    }
+
+    /* Детали оформления */
+    ::selection {
+      color: var(--navy-950);
+      background: var(--accent);
+    }
+
+    .hero h1 span:last-child {
+      color: var(--accent);
+    }
+
+    .section-grid > h2 {
+      position: sticky;
+      top: calc(var(--header-height) + 28px);
+    }
+
+    .about-copy,
+    .projects,
+    .contact-list {
+      position: relative;
+    }
+
+    .project {
+      position: relative;
+      transition: padding-left .22s ease, background .22s ease;
+    }
+
+    .project:hover {
+      padding-left: 12px;
+    }
+
+    .project h3::after {
+      display: inline-block;
+      margin-left: 8px;
+      color: var(--accent);
+      content: "↗";
+      font: 500 .75em/1 var(--font-body);
+      opacity: 0;
+      transform: translate(-4px, 4px);
+      transition: opacity .2s, transform .2s;
+    }
+
+    .project:hover h3::after {
+      opacity: 1;
+      transform: translate(0, 0);
+    }
+
+    .achievement {
+      overflow: hidden;
+    }
+
+    .achievement img {
+      transition: transform .45s ease;
+    }
+
+    .achievement:hover img {
+      transform: scale(1.025);
+    }
+
+    .interest {
+      background:
+        radial-gradient(ellipse at 50% 56%, rgb(39 76 139 / 28%), transparent 57%),
+        #0b1630;
+    }
+
+    .interest img {
+      filter: drop-shadow(0 26px 34px rgb(0 0 0 / 35%));
+    }
+
+    .button:focus-visible,
+    .nav-list a:focus-visible {
+      outline: 2px solid var(--accent-bright);
+      outline-offset: 4px;
+    }
+
+    /* Адаптация под планшеты и телефоны */
+    @media (max-width: 820px) {
+      :root {
+        --header-height: 66px;
+      }
+
+      .section-grid > h2 {
+        position: static;
+      }
+
+      .hero-grid {
+        grid-template-columns: minmax(0, 1.1fr) minmax(230px, .8fr);
+        gap: 42px;
+      }
+
+      .section-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+      }
+
+      .achievement {
+        grid-template-columns: 1fr;
+      }
+
+      .achievement img {
+        max-height: 440px;
+        object-fit: contain;
+        background: rgb(5 13 28 / 28%);
+      }
+    }
+
+    @media (max-width: 620px) {
+      .wrap {
+        width: min(var(--page), calc(100% - 36px));
+      }
+
+      .header-inner {
+        align-items: center;
+        gap: 10px;
+      }
+
+      .brand {
+        gap: 8px;
+        font-size: .98rem;
+      }
+
+      .brand-mark {
+        width: 34px;
+      }
+
+      .nav-list {
+        gap: 0;
+      }
+
+      .nav-list a {
+        padding: 8px 9px;
+        font-size: .82rem;
+      }
+
+      .hero {
+        padding-top: 64px;
+      }
+
+      .hero-grid {
+        grid-template-columns: 1fr;
+        gap: 48px;
+      }
+
+      .portrait {
+        justify-self: start;
+        width: min(84%, 340px);
+        margin-right: 16px;
+      }
+
+      .facts {
+        grid-template-columns: 1fr;
+      }
+
+      .project {
+        grid-template-columns: 1fr;
+        gap: 8px;
+        align-items: start;
+      }
+
+      .tag {
+        justify-self: start;
+        grid-row: 1;
+      }
+
+      .project h3 {
+        grid-row: 2;
+      }
+
+      .project p {
+        grid-row: 3;
+      }
+
+      .contact-list a {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 3px;
+      }
+
+      .contact-value {
+        text-align: left;
+      }
+
+      .footer-inner {
+        flex-direction: column;
+      }
+    }
+
+    @media (max-width: 380px) {
+      .header-inner {
+        width: calc(100% - 24px);
+      }
+
+      .brand-name {
+        display: none;
+      }
+
+      .nav-list a {
+        padding-inline: 7px;
+        font-size: .78rem;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      *,
+      *::before,
+      *::after {
+        scroll-behavior: auto !important;
+        transition-duration: .01ms !important;
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="wrap header-inner">
+      <a class="brand" href="#top" aria-label="Ersultan Serikboluly, back to top">
+        <span class="brand-mark" aria-hidden="true">ES</span>
+        <span class="brand-name">Ersultan</span>
+      </a>
+
+      <nav aria-label="Main navigation">
+        <ul class="nav-list">
+          <li><a href="#about">About</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero" id="top" aria-labelledby="hero-title">
+      <div class="wrap hero-grid">
+        <div>
+          <p class="status">Available for website projects</p>
+          <h1 id="hero-title">
+            <span>Ersultan</span>
+            <span>Serikboluly</span>
+          </h1>
+          <p class="role">Web developer and software student from Atyrau, Kazakhstan.</p>
+          <div class="hero-actions">
+            <a class="button button-primary" href="#projects">See my work</a>
+            <a class="button button-secondary" href="#contact">Get in touch</a>
+          </div>
+        </div>
+
+        <figure class="portrait">
+          <img src="images/photo.jpeg" alt="Portrait of Ersultan Serikboluly" width="960" height="1280" fetchpriority="high">
+        </figure>
+      </div>
+    </section>
+
+    <section class="section section-deep" id="about" aria-labelledby="about-title">
+      <div class="wrap section-grid">
+        <h2 id="about-title">About me</h2>
+        <div class="about-copy">
+          <p>I'm Ersultan, a second-year Software student from Atyrau. I build websites and care about making them clean, fast and easy to use, from the first sketch to the final code.</p>
+          <p>I've already built websites for real clients, including Aisha Tort and Sky Park, and I'm working with my friends on a business project called Aqyl Jol. In 2026 I took part in the National Founder Cup hackathon in Astana, where I worked on a business idea as part of a team.</p>
+          <p>Outside of code you'll find me in the gym, looking at Porsches I'd love to own one day, or searching for good food.</p>
+
+          <ul class="facts">
+            <li><span class="fact-label">Based in</span><span class="fact-value">Atyrau, Kazakhstan</span></li>
+            <li><span class="fact-label">Studying</span><span class="fact-value">Software, 2nd year</span></li>
+            <li><span class="fact-label">Focus</span><span class="fact-value">Websites and startups</span></li>
+            <li><span class="fact-label">Languages</span><span class="fact-value">Kazakh, Russian, English</span></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="interest" aria-labelledby="interest-title">
+      <div class="wrap interest-inner">
+        <h2 id="interest-title">Precision is a habit.</h2>
+        <img src="images/porsche.jpeg" alt="Navy blue Porsche 911 GT3 RS, side view" width="1200" height="800" loading="lazy" decoding="async">
+        <p>My dream car. I like things built with care, whether it's an engine or a website.</p>
+      </div>
+    </section>
+
+    <section class="section" id="skills" aria-labelledby="skills-title">
+      <div class="wrap section-grid">
+        <h2 id="skills-title">Skills</h2>
+        <div>
+          <div class="skill-group">
+            <h3>Development</h3>
+            <ul class="chips">
+              <li>HTML</li>
+              <li>CSS</li>
+              <li>JavaScript</li>
+              <li>Responsive layouts</li>
+              <li>Visual Studio Code</li>
+            </ul>
+          </div>
+
+          <div class="skill-group">
+            <h3>Design</h3>
+            <ul class="chips">
+              <li>Minimal interfaces</li>
+              <li>Typography</li>
+              <li>Color</li>
+              <li>Layout and spacing</li>
+            </ul>
+          </div>
+
+          <div class="skill-group">
+            <h3>Business</h3>
+            <ul class="chips">
+              <li>Startup ideas</li>
+              <li>Pitching</li>
+              <li>Working with clients</li>
+              <li>Hackathons</li>
+            </ul>
+          </div>
+
+          <div class="skill-group">
+            <h3>Teamwork</h3>
+            <ul class="chips">
+              <li>Building with friends</li>
+              <li>Meeting deadlines</li>
+              <li>Clear communication</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-deep" id="projects" aria-labelledby="projects-title">
+      <div class="wrap">
+        <div class="section-grid">
+          <h2 id="projects-title">Projects</h2>
+          <ul class="projects">
+            <li class="project">
+              <h3>Aqyl Jol</h3>
+              <p>A business project I'm building together with my friends.</p>
+              <span class="tag">Startup</span>
+            </li>
+            <li class="project">
+              <h3>Aisha Tort</h3>
+              <p>A custom website made to order for the company.</p>
+              <span class="tag">Client website</span>
+            </li>
+            <li class="project">
+              <h3>Sky Park</h3>
+              <p>A custom website made to order for the company.</p>
+              <span class="tag">Client website</span>
+            </li>
+          </ul>
+        </div>
+
+        <article class="achievement">
+          <div>
+            <h3>National Founder Cup 2026</h3>
+            <p>Republican hackathon in Astana. I took part with my team and received a certificate of achievement for entrepreneurship, creativity and teamwork.</p>
+          </div>
+          <img src="images/nfc-certificate.jpeg" alt="National Founder Cup certificate of achievement awarded to Serikboluly Ersultan" width="1179" height="904" loading="lazy" decoding="async">
+        </article>
+      </div>
+    </section>
+
+    <section class="section contact" id="contact" aria-labelledby="contact-title">
+      <div class="wrap section-grid">
+        <div>
+          <h2 id="contact-title">Let's build something.</h2>
+          <p class="contact-intro">Have a project or an idea? Write to me, I'll be happy to help.</p>
+        </div>
+
+        <ul class="contact-list">
+          <li>
+            <a href="mailto:eserikboluly25@apec.edu.kz">
+              <span class="contact-label">Email</span>
+              <span class="contact-value">eserikboluly25@apec.edu.kz</span>
+            </a>
+          </li>
+          <li>
+            <a href="https://wa.me/77788580540" target="_blank" rel="noopener noreferrer">
+              <span class="contact-label">WhatsApp</span>
+              <span class="contact-value">+7 778 858 0540</span>
+            </a>
+          </li>
+          <li>
+            <a href="https://instagram.com/6erstn" target="_blank" rel="noopener noreferrer">
+              <span class="contact-label">Instagram</span>
+              <span class="contact-value">@6erstn</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap footer-inner">
+      <p>© 2026 Ersultan Serikboluly</p>
+      <p><a href="#top">Back to top ↑</a></p>
+    </div>
+  </footer>
+</body>
+</html>
